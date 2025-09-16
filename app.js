@@ -1,9 +1,9 @@
-const http = require('http');
-const port = 3000;
-const server = http.createServer((req, res) => {
- res.statusCode = 200;
- res.end('Hello from DevOps Pipeline!\n');
+const express = require('express');
+const app = express();
+const PORT = process.env.PORT || 3000;
+app.get('/', (req, res) => {
+ res.send('Hello from DevOps Pipeline running in Docker!');
 });
-server.listen(port, () => {
- console.log(`Server running at port ${port}`);
+app.listen(PORT, () => {
+ console.log(`App is running on http://localhost:${PORT}`);
 });
